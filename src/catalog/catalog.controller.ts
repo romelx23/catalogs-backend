@@ -7,7 +7,8 @@ export const getCatalog = async (req: Request, res: Response, next:NextFunction)
     res.status(200).json({
       statusCode: 200,
       message: 'Find all Catalogs',
-      data: catalog
+      data: catalog,
+      total: catalog.length
     })
   } catch (error) {
     next(error)

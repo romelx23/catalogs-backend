@@ -9,7 +9,7 @@ interface CatalogI{
 }
 
 export const listCatalog = async () => {
-  const catalog = await Catalog.findAll()
+  const catalog = await Catalog.findAll({ order: [['pub_date', 'DESC']] })
   if (!catalog) throw boom.boomify(new Error('No hay catalogo'), { statusCode: 404 })
   return catalog
 }
